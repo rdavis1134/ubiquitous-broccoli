@@ -1,0 +1,11 @@
+{
+    "CrewDispatch": {
+        "B_type": true,
+        "C_type": true,
+        "G_type": true,
+        "L_type": true,
+        "S_type": true,
+		"wait_before_refresh": 3,
+        "rounds": 11
+    }
+}
