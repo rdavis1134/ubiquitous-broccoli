@@ -102,7 +102,7 @@ def attempt_rounds(rounds: int, already_done: int, refresh_wait: int, images, se
         if rnd != rounds:
             sleep(refresh_wait)
             pyautogui.click(refresh_pos)
-            sleep(1.5)
+            sleep(2)    # 1.5 seconds may not be fully enough time for the pulse animation to clear.
     return rnd
 
 
