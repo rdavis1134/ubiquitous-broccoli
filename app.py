@@ -3,6 +3,7 @@ import pyautogui
 
 import datalink
 from crewdispatch import main as crewdispatch_start
+from events import main as events_start
 
 
 def find_image(img, conf=0.9, area=None):
@@ -148,8 +149,8 @@ def main(settings=None):
     for key in settings.keys():
         left_bag = False
         if key == "CrewDispatch":
-            ops_btn = find_image(r"images\Navigation_base2.png", area=nav_area)
-            pyautogui.click(pyautogui.center(ops_btn))
+            base_btn = find_image(r"images\Navigation_base2.png", area=nav_area)
+            pyautogui.click(pyautogui.center(base_btn))
             left_bag = True
             in_crewdispatch = find_in_base(r"images\Base_crewdispatch.png", game_area)
             if in_crewdispatch:
@@ -157,6 +158,14 @@ def main(settings=None):
                 sleep(2)
             else:
                 print("---\nUnable to locate Crew Dispatch button in Base")
+        if key == "Events":
+            ops_btn = find_image(r"images\Navigation_ops2.png")
+            if ops_btn:
+                pyautogui.click(pyautogui.center(ops_btn))
+                left_bag = True
+                events_start(back_pos=back_pos, game_region=game_area)
+            else:
+                print("---\nUnable to navigate to Ops for Events")
         if left_bag:
             return_to_bag(back_pos, nav_area)
 

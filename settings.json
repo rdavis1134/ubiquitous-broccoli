@@ -5,7 +5,39 @@
         "G_type": true,
         "L_type": true,
         "S_type": true,
-		"wait_before_refresh": 3,
+        "wait_before_refresh": 3,
         "rounds": 11
+    },
+	"Events": {
+        "crystalflower": {
+            "itemfree": 10,
+            "item20": 10,
+            "item50": 2,
+            "item100": 0
+        },
+        "desslerswine": {
+            "itemfree": 10,
+            "item20": 20,
+            "item50": 10,
+            "item100": 5
+        },
+        "fishing": {
+            "itemfree": 10,
+            "item20": 10,
+            "item50": 2,
+            "item100": 0
+        },
+        "girlsnight": {
+            "itemfree": 10,
+            "item20": 20,
+            "item50": 10,
+            "item100": 5
+        },
+        "repair": {
+            "itemfree": 10,
+            "item20": 10,
+            "item50": 2,
+            "item100": 0
+        }
     }
 }
