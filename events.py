@@ -10,7 +10,7 @@ def find_image(img, conf=0.9, stop=0.86, area=None):
     # Search for a specified image. Suppresses the Exception when/if it isn't found.
     # Instead of crashing, it waits a moment then decreases the confidence by 0.01 and tries again.
     # Returns the location of the image (left, top, width, height) if found.
-    # Returns None if the image isn't found by/before confidence 0.8.
+    # Returns None if the image isn't found by/before confidence 0.86.
     while True:
         try:
             return pyautogui.locateOnScreen(img, confidence=conf, region=area)
