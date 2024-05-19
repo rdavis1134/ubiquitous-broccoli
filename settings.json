@@ -39,5 +39,10 @@
             "item50": 2,
             "item100": 0
         }
-    }
+    },
+	"RepairUpgrade": {
+		"crew_qty": 10,
+		"emergency": 3,
+		"upgrade": true
+	}
 }

@@ -4,6 +4,7 @@ import pyautogui
 import datalink
 from crewdispatch import main as crewdispatch_start
 from events import main as events_start
+from repairupgrade import main as repairupgrade_start
 
 
 def find_image(img, conf=0.9, area=None):
@@ -150,22 +151,35 @@ def main(settings=None):
         left_bag = False
         if key == "CrewDispatch":
             base_btn = find_image(r"images\Navigation_base2.png", area=nav_area)
-            pyautogui.click(pyautogui.center(base_btn))
-            left_bag = True
-            in_crewdispatch = find_in_base(r"images\Base_crewdispatch.png", game_area)
-            if in_crewdispatch:
-                crewdispatch_start(game_area)
-                sleep(2)
+            if base_btn:
+                pyautogui.click(pyautogui.center(base_btn))
+                left_bag = True
+                crewdispatch_btn = find_in_base(r"images\Base_crewdispatch.png", game_area)
+                if crewdispatch_btn:
+                    sleep(2)
+                    crewdispatch_start(game_area)
+                else:
+                    print("---\nUnable to locate Crew Dispatch button in Base")
             else:
-                print("---\nUnable to locate Crew Dispatch button in Base")
+                print("---\nUnable to navigate to Base for Crew Dispatch")
         if key == "Events":
             ops_btn = find_image(r"images\Navigation_ops2.png")
             if ops_btn:
                 pyautogui.click(pyautogui.center(ops_btn))
                 left_bag = True
+                sleep(2)
                 events_start(back_pos=back_pos, game_region=game_area)
             else:
                 print("---\nUnable to navigate to Ops for Events")
+        if key == "RepairUpgrade":
+            crew_btn = find_image(r"images\Navigation_crew2.png")
+            if crew_btn:
+                pyautogui.click(pyautogui.center(crew_btn))
+                left_bag = True
+                sleep(2)
+                repairupgrade_start(game_area)
+            else:
+                print("---\nUnable to navigate to Crew for Repair Upgrade")
         if left_bag:
             return_to_bag(back_pos, nav_area)
 

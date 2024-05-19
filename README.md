@@ -30,10 +30,11 @@ This program expects to read your settings from settings.json. You can disable a
 ### Completed:
 - Activity Navigation.
 - Crew Dispatch.
-- Event auto-buy / auto-use.
+- Event Item auto-buy / auto-use.
+- Repair Auto-Upgrade.
 
 ### In progress:
-- Repair Upgrade.
+- Like Responder.
 
 ### Future:
 - Crew Dispatch: Detection of failure to open items.
@@ -48,3 +49,4 @@ This program expects to read your settings from settings.json. You can disable a
 - Crew Dispatch: If your connection is laggy, the game will not update after the refresh, and the lack of update is both not detected and assumed not to have taken place. The Crew Dispatch handler will continue to click any remaining items on screen (ie: non-completable ones) until it reaches the target number of rounds or you terminate the program. Don't worry, though- the game itself (server-side) is updating where it knows the items to be, not telling your computer about them, and deducting all necessary fuel costs from your account.
 - Events: The item buyer infrequently misses the Cancel button, and fails to exit the Buy menu before continuing with the Events sequence. Generally this crashes the program before completion. Re-running Events usually fixes it, but the items are still available for use by you at your leisure.
 - Events: The Girl's Night and Repair Event backgrounds prevent detection of the back button, at least intermittently. If calling from the main sequence handler, then that position is already known and can be passed in advance, but if calling `events.py` separately the program is unlikely to complete if either the Girl's Night or Repair Event is running.
+- Repair Upgrade: The image detector frequently detects the "Sub" tab in its active state. This is technically a waste of time, but because it only results in a verification that we're definitely leveling Repair, it's not a priority bug.
