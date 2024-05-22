@@ -6,6 +6,16 @@ import pyautogui
 import datalink
 
 
+    # settings.json = {
+    #   "RepairUpgrade" = {
+    #       "crew_qty" = int,   (How many Crew to try to upgrade)
+    #       "emergency" = int,  (Cutoff for tries, in case we're accidentally spending Training Cores)
+    #       "upgrade" = bool    (Whether or not we should run the Repair Upgrade at all)
+    #   },
+    #   ...
+    # }
+
+
 def find_image(img, conf=0.9, area=None):
     # Search for a specified image. Suppresses the Exception when/if it isn't found.
     # Instead of crashing, it waits a moment then decreases the confidence by 0.01 and tries again.

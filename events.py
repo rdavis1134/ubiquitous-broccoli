@@ -6,6 +6,23 @@ import pyautogui
 import datalink
 
 
+    # settings.json = {
+    #   "Events" {
+    #       "fishing" = {
+    #           "itemfree" = int,       (How many of the free items to buy for the Fishing Event)
+    #           "item20" = int,         (How many of the 20 gem items to buy for the Fishing Event)
+    #           "item50" = int,         (How many of the 50 gem items to buy for the Fishing Event)
+    #           "item100" = int         (How many of the 100 gem items to buy for the Fishing Event)
+    #       },
+    #       "crystalflower" = { ... },  (The same, but for the Crystal Flower Event)
+    #       "desslerswine" = { ... },   (The same, but for the Dessler's Wine Event)
+    #       "girlsnight" = { ... },     (The same, but for the Girl's Night Event)
+    #       "repair" = { ... }          (The same, but for the Repair Event)
+    #   },
+    #   ...
+    # }
+
+
 def find_image(img, conf=0.9, stop=0.86, area=None):
     # Search for a specified image. Suppresses the Exception when/if it isn't found.
     # Instead of crashing, it waits a moment then decreases the confidence by 0.01 and tries again.

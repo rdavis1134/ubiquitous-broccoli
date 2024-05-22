@@ -7,6 +7,20 @@ import pyscreeze
 import datalink
 
 
+    # settings.json = {
+    #   "CrewDispatch" = {
+    #       "B_type" = bool,                (Enables checking for Battle-type items)
+    #       "C_type" = bool,                (Enables checking for Courage-type items)
+    #       "G_type" = bool,                (Enables checking for Galaxy-type items)
+    #       "L_type" = bool,                (Enables checking for Love-type items)
+    #       "S_type" = bool,                (Enables checking for Star-type items)
+    #       "wait_before_refresh" = int,    (How many seconds to wait after completing all items before refreshing)
+    #       "rounds" = int                  (How many rounds to try to complete in total)
+    #   },
+    #   ...
+    # }
+
+
 def find_image(img, conf=0.9, area=None):
     # Search for a specified image. Suppresses the Exception when/if it isn't found.
     # Instead of crashing, it waits a moment then decreases the confidence by 0.01 and tries again.
