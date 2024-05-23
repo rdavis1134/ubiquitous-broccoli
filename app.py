@@ -51,7 +51,9 @@ def build_game_area():
     back_btn = None
     back_pos = None
     if not bag_btn:
-        back_btn = find_at_least_one_image([r"images\Navigation_back1.png", r"images\Navigation_back2.png"])
+        back_btn = find_at_least_one_image([r"images\Navigation_back1.png",
+                                            r"images\Navigation_back2.png",
+                                            r"images\Navigation_back3.png"])    # Crashes if starting from Limited.
         back_pos = pyautogui.center(back_btn)
     while not bag_btn:
         pyautogui.click(back_pos)
