@@ -7,7 +7,7 @@ import datalink
 
 
     # settings.json = {
-    #   "Events" {
+    #   "Events" = {
     #       "fishing" = {
     #           "itemfree" = int,       (How many of the free items to buy for the Fishing Event)
     #           "item20" = int,         (How many of the 20 gem items to buy for the Fishing Event)
