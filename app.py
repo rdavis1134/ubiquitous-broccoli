@@ -5,6 +5,7 @@ import datalink
 from crewdispatch import main as crewdispatch_start
 from events import main as events_start
 from repairupgrade import main as repairupgrade_start
+from likesresponder import main as likes_start
 
 
 def find_image(img, conf=0.9, area=None):
@@ -182,6 +183,15 @@ def main(settings=None):
                 repairupgrade_start(game_area)
             else:
                 print("---\nUnable to navigate to Crew for Repair Upgrade")
+        if key == "LikesResponder":
+            rooms_btn = find_image(r"images\Navigation_rooms2.png")
+            if rooms_btn:
+                pyautogui.click(pyautogui.center(rooms_btn))
+                left_bag = True
+                sleep(2)
+                likes_start(game_area)
+            else:
+                print("---\nUnable to navigate to Rooms")
         if left_bag:
             return_to_bag(back_pos, nav_area)
 

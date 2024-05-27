@@ -32,13 +32,15 @@ This program expects to read your settings from settings.json. You can disable a
 - Crew Dispatch.
 - Event Item auto-buy / auto-use.
 - Repair Auto-Upgrade.
+- Like Responder.
 
 ### In progress:
-- Like Responder.
+
 
 ### Future:
 - Crew Dispatch: Detection of failure to open items.
 - CLI interface for people who won't use the settings file.
+- Likes Responder: Allow the use of a limited number of Boost Tickets per day.
 
 ### No longer pursuing:
 - Crew Dispatch: Star search / star filtering. Why: Too many cross detections on star amounts. Confidence values high enough to eliminate them also eliminate items due to the in-game background.
@@ -50,3 +52,4 @@ This program expects to read your settings from settings.json. You can disable a
 - Events: The item buyer infrequently misses the Cancel button, and fails to exit the Buy menu before continuing with the Events sequence. Generally this crashes the program before completion. Re-running Events usually fixes it, but the items are still available for use by you at your leisure.
 - Events: The Girl's Night and Repair Event backgrounds prevent detection of the back button, at least intermittently. If calling from the main sequence handler, then that position is already known and can be passed in advance, but if calling `events.py` separately the program is unlikely to complete if either the Girl's Night or Repair Event is running.
 - Repair Upgrade: The image detector frequently detects the "Sub" tab in its active state. This is technically a waste of time, but because it only results in a verification that we're definitely leveling Repair, it's not a priority bug.
+- Like Responder: The Like Responder doesn't check that you've received Likes that can be responded to. New players and players who don't have Likes from at least ten unique players should disable the Likes Responder to avoid crashing.

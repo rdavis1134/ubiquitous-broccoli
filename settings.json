@@ -40,9 +40,13 @@
             "item100": 0
         }
     },
-	"RepairUpgrade": {
-		"crew_qty": 10,
-		"emergency": 3,
-		"upgrade": true
-	}
+    "LikesResponder": {
+        "cutoff_days": 2,
+        "use_likes": true
+    },
+    "RepairUpgrade": {
+        "crew_qty": 10,
+        "emergency": 3,
+        "upgrade": true
+    }
 }
