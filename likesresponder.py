@@ -83,13 +83,13 @@ def dispatch_like(like_pos, back_pos, boost_region):
     if not like_pos:
         like_btn = find_image(r"images\LikesResponder_like.png")
         like_pos = pyautogui.center(like_btn)
-    pyautogui.click(like_pos)
-    sleep(1)
+    pyautogui.click(like_pos, clicks=3, interval=0.5)   # Server lag sometimes prevents this click.
+    sleep(1)    # Hopefully, three clicks is enough to still leave the Boost warning open.
     boost = find_image(r"images\LikesResponder_useboost.png", area=boost_region)
     if not back_pos:
         back_btn = find_image(r"images\LikeResponder_back.png")
         back_pos = pyautogui.center(back_btn)
-    pyautogui.click(back_pos)
+    pyautogui.click(back_pos, clicks=2, interval=0.5)   # Server lag sometimes prevents this click.
     sleep(1)
     return (boost is None)
 
@@ -150,9 +150,11 @@ def main(game_region=None):
             first = visits[window[0]]
             last = visits[window[-1]]
             pyautogui.moveTo(last[0] - last[2]//2, last[1] + last[3]//2)
-            pyautogui.dragTo(first[0] - first[2]//2, first[1] + first[3]//2, 1, pyautogui.easeOutQuad)
-            sleep(0.2)
-            visits = build_visit_buttons(window[-1], game_region=visit_region)
+            pyautogui.mouseDown()   # Server lag regularly negates the mouse easing.
+            pyautogui.moveTo(first[0] - first[2]//2, first[1] + first[3]//2)
+            sleep(0.5)  # Instead, move then guarantee the mouse stopped completely.
+            pyautogui.mouseUp()
+            visits = build_visit_buttons(start=window[-1], game_region=visit_region)
         if not boost_region:
             boost_region = (visits[2][0] - visits[2][2], visits[2][1] - visits[2][3], 2*visits[2][2], 3*visits[2][3])
         pyautogui.moveTo(pyautogui.center(visits[i]))
@@ -160,7 +162,7 @@ def main(game_region=None):
             age_region = (visits[i][0] - 2*visits[i][2], visits[i][1], 2*visits[i][2], 2*visits[i][3])
             too_old = exceeds_cutoff_age(cutoff_days, age_region)
             if too_old:
-                print("\titem age exceeds cutoff")
+                print("\t\titem age exceeds cutoff")
                 break       # We don't have to keep checking, everything further down is even older.
         pyautogui.click(pyautogui.center(visits[i]))
         sleep(1)    # There can be a bit of server lag.

@@ -16,7 +16,7 @@ From the project folder, run:
 
 `pip install -r requirements.txt` to install the dependencies of this project.
 
-When you're ready to quit the game altogether, or need to use your base python install again, `deactivate`
+When you're ready to quit the game altogether, `deactivate`
 
 ### Usage:
 Couldn't be simpler. `python app.py`
@@ -35,12 +35,13 @@ This program expects to read your settings from settings.json. You can disable a
 - Like Responder.
 
 ### In progress:
-
+- Mail Collector.
 
 ### Future:
 - Crew Dispatch: Detection of failure to open items.
 - CLI interface for people who won't use the settings file.
 - Likes Responder: Allow the use of a limited number of Boost Tickets per day.
+- Likes Responder: Add a setting to limit the maximum cutoff days to search for. The default is 5 days right now, and it looks like the click just doesn't register for 2-5 seconds.
 
 ### No longer pursuing:
 - Crew Dispatch: Star search / star filtering. Why: Too many cross detections on star amounts. Confidence values high enough to eliminate them also eliminate items due to the in-game background.
