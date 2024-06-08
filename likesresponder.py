@@ -163,9 +163,10 @@ def main(game_region=None):
             too_old = exceeds_cutoff_age(cutoff_days, age_region)
             if too_old:
                 print("\t\titem age exceeds cutoff")
+                pyautogui.click(list_btn[0] + 3*list_btn[2]//2, list_btn[1] + list_btn[3]//2)   # Close the list.
                 break       # We don't have to keep checking, everything further down is even older.
         pyautogui.click(pyautogui.center(visits[i]))
-        sleep(1)    # There can be a bit of server lag.
+        sleep(3)    # G123 must have downgraded their servers. The lag is even worse.
         if not like_pos:    # Cache the Like position.
             like_btn = find_image(r"images\LikesResponder_like.png", area=game_region)
             like_pos = pyautogui.center(like_btn)
