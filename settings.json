@@ -44,6 +44,9 @@
         "cutoff_days": 2,
         "use_likes": true
     },
+    "MailCollector": {
+        "get_mail": true
+    },
     "RepairUpgrade": {
         "crew_qty": 10,
         "emergency": 3,
